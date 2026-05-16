@@ -1,0 +1,48 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(196, 195, 208);
+}
+
+@font-face {
+    font-family: 'Nurma';
+    src: url('fonts/Nurma-Regular.otf') format('opentype');
+}
+
+nav{
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding-left: 80px;
+    padding-right: 80px;
+    font-family: 'Nurma';
+    margin: 20px;
+    border-radius: 50px;
+    background-color: rgb(28, 30, 30);
+    color: white;
+    box-shadow: 0px 0px 30px rgb(2, 65, 82);
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    gap: 35px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+.logo{
+    font-size: 30px;
+    font-weight: 900;
+}
