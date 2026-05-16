@@ -12,14 +12,14 @@
         <div class="logo">Logo</div>
         <div class="links">
             <ul>
-                <li><a href="">link-1</a></li>
-                <li><a href="">link-2</a></li>
-                <li><a href="">link-3</a></li>
+                <li onclick="showPage('main-page')">link-1</li>
+                <li onclick="showPage('database')">link-2</li>
+                <li onclick="showPage('about')">link-3</lionclick>
             </ul>
         </div>
     </nav>
 
-    <main>
+    <main id="main-page" class="content active">
         <div class="container">
 
             <form action="">
@@ -53,9 +53,18 @@
         </div>
     </main>
 
+    <div id="database" class="content">
+        click to see database
+    </div>
+
+    <div id="about" class="content">
+        About page
+    </div>
+
     <footer>
         &copy; All rights reserved.
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
