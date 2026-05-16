@@ -1,0 +1,25 @@
+{
+  "name": "billing-system",
+  "version": "1.0.0",
+  "description": "This project is a Billing System designed to manage and store records of sold products.",
+  "homepage": "https://github.com/Pathan-Irfan8007/Billing-System#readme",
+  "bugs": {
+    "url": "https://github.com/Pathan-Irfan8007/Billing-System/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pathan-Irfan8007/Billing-System.git"
+  },
+  "license": "ISC",
+  "author": "Irfan Pathan",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "node": "^22.22.3"
+  }
+}
