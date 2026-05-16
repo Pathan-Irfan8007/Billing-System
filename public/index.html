@@ -19,5 +19,39 @@
         </div>
     </nav>
 
+    <main>
+        <div class="container">
+
+            <form action="">
+                
+                <label for="name">Name : </label><br>
+                <input type="text" name="name" id="name" class="input-data" placeholder="Enter Customer's Full Name" required><br><br>
+                
+                <label for="mob">Mobile No : </label><br>
+                <input type="tel" name="mob" id="mob" maxlength="10" pattern="[0-9]{10}" class="input-data" placeholder="Enter Mobile Number" required><br><br>
+                
+                <label for="product">Product Name :</label><br>
+                <select name="product-name" id="product" class="input-data" required>
+                    <option selected disabled>Select Product Name</option>
+                    <option value="op-1">op-1</option>
+                    <option value="op-2">op-2</option>
+                    <option value="op-3">op-3</option>
+                    <option value="op-4">op-4</option>
+                </select><br><br>
+                
+                <label for="price">Price : </label><br>
+                <input type="number" name="price" id="price" class="input-data" placeholder="Enter Price of Product" required><br><br>
+                
+                <label for="mode">Mode of Payment : </label><br>
+                <select name="mode" id="mode" class="input-data">
+                    <option value="online" selected>Online</option>
+                    <option value="Cash">Cash</option>
+                </select><br><br>
+                
+                <button type="submit" id="submit" value="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+
 </body>
 </html>
