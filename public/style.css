@@ -106,3 +106,13 @@ label{
 .input-data:hover{
     box-shadow: 5px 5px 10px rgb(85, 104, 110);
 }
+
+footer{
+    background-color: rgb(28, 30, 30);
+    color: white;
+    height: 10vh;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
