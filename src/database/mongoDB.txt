@@ -1,0 +1,18 @@
+use Billing-System;
+
+db.customer.insertMany([
+    {
+        name : "Irfan Pathan",
+        mob : 8007111516,
+        product : "Laptop",
+        price : 40000,
+        payment : "online"
+    },
+    {
+        name : "Zeeshan Tamboli",
+        mob : 1234567890,
+        product : "Mobile",
+        price : 25000,
+        payment : "cash"
+    }
+]);
