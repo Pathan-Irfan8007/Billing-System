@@ -160,3 +160,20 @@ footer{
 #customerTable tr:hover{
     background-color: #f2f2f2;
 }
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(196, 195, 208);
+}
+
+nav{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+footer{
+    margin-top: auto;
+}
