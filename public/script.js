@@ -13,18 +13,31 @@ const getData = async () => {
         const res = await fetch('http://localhost:5000/customer')
         const customerData = await res.json()
 
-        let output = ""
+        let output = `
+        <table id="customerTable">
+            <tr>
+                <th>Name</th>
+                <th>Mobile No</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Payment Mode</th>
+            </tr>
+        `;
+
         customerData.forEach(customer => {
             output += `
-                <div id="customerData">
-                    <p><b>Name :</b> ${customer.name}</p><br>
-                    <p><b>Mobile No :</b> ${customer.mob}</p><br>
-                    <p><b>Product Name :</b> ${customer.product}</p><br>
-                    <p><b>Price :</b> ${customer.price}</p><br>
-                    <p><b>Payment Method :</b> ${customer.payment}</p><br>
-                </div>
-            `
-        })
+                <tr>
+                    <td>${customer.name}</td>
+                    <td>${customer.mob}</td>
+                    <td>${customer.product}</td>
+                    <td>${customer.price}</td>
+                    <td>${customer.payment}</td>
+                </tr>
+            `;
+        });
+
+        output += `</table>`;
+
         document.getElementById('database').innerHTML = output
     } catch (error){
         console.log(`Something Went Wrong : ${error}`)
