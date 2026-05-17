@@ -43,6 +43,24 @@ app.get('/customer', async (req, res) => {
     res.json(customerData)
 })
 
+app.post('/customer', async (req, res) => {
+    try{
+
+        const collection = await db.collection('customer')
+        const result = await collection.insertOne(req.body)
+        
+        res.json({
+            message : "Data Inserted Successfully",
+            result : result
+        })
+    } catch (error) {
+        res.status(500).json({
+            message : "Error While inserting Data",
+            error : error
+        })
+    }
+})
+
 app.listen(port, () => {
     console.log(`Click To Continue http://localhost:${port}`)
 })

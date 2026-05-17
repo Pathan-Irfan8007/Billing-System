@@ -31,3 +31,35 @@ const getData = async () => {
     }
 }
 getData()
+
+document.getElementById('customerForm').addEventListener('submit', async (e) => {
+    e.preventDefault()
+
+    const customerData = {
+        name : document.getElementById("name").value,
+        mob : document.getElementById("mob").value,
+        product : document.getElementById("product").value,
+        price : document.getElementById("price").value,
+        payment : document.getElementById("mode").value
+    }
+
+    try{
+        const res = await fetch("http://localhost:5000/customer", {
+            method : "POST",
+            headers : {
+                "content-type" : "Application/json"
+            },
+            body : JSON.stringify(customerData)
+        })
+
+        const data = await res.json()
+        console.log(data)
+        alert("Data Inserted Successfully.")
+
+        await getData()
+        document.getElementById("customerForm").reset()
+        
+    } catch (error) {
+        console.log(`Somethig went wrong in data insertion ${error}`)
+    }
+})

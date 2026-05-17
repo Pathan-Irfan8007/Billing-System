@@ -22,7 +22,7 @@
     <main id="main-page" class="content active">
         <div class="container">
 
-            <form action="">
+            <form id="customerForm">
                 
                 <label for="name">Name : </label><br>
                 <input type="text" name="name" id="name" class="input-data" placeholder="Enter Customer's Full Name" required><br><br>
@@ -44,7 +44,8 @@
                 
                 <label for="mode">Mode of Payment : </label><br>
                 <select name="mode" id="mode" class="input-data">
-                    <option value="online" selected>Online</option>
+                    <option selected disabled>Select Payment Method</option>
+                    <option value="online">Online</option>
                     <option value="Cash">Cash</option>
                 </select><br><br>
                 
