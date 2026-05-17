@@ -15,8 +15,6 @@ body{
 
 .content{
     display: none;
-    justify-content: center;
-    align-items: center;
 }
 
 .active{

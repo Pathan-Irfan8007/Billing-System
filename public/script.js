@@ -12,6 +12,9 @@ const getData = async () => {
     try{
         const res = await fetch('http://localhost:5000/customer')
         const customerData = await res.json()
+        customerData.sort((a,b) => 
+            new Date(b.createdAt) - new Date(a.createdAt)
+        )
 
         let output = `
         <table id="customerTable">
@@ -21,6 +24,7 @@ const getData = async () => {
                 <th>Product</th>
                 <th>Price</th>
                 <th>Payment Mode</th>
+                <th>Date</th>
             </tr>
         `;
 
@@ -32,6 +36,7 @@ const getData = async () => {
                     <td>${customer.product}</td>
                     <td>${customer.price}</td>
                     <td>${customer.payment}</td>
+                    <td>${new Date(customer.createdAt).toLocaleDateString('en-GB').replaceAll('/', '-')}</td>
                 </tr>
             `;
         });
@@ -53,7 +58,9 @@ document.getElementById('customerForm').addEventListener('submit', async (e) => 
         mob : document.getElementById("mob").value,
         product : document.getElementById("product").value,
         price : document.getElementById("price").value,
-        payment : document.getElementById("mode").value
+        payment : document.getElementById("mode").value,
+
+        createdAt : new Date()
     }
 
     try{
