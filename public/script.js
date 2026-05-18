@@ -124,3 +124,16 @@ const searchData = async () => {
 function toggleMenu(){
     document.getElementById("mobileMenu").classList.toggle("active-menu");
 }
+
+async function downloadMonthlyData(){
+
+    const month = document.getElementById("monthPicker").value;
+
+    if(!month){
+        alert("Please select month");
+        return;
+    }
+
+    window.location.href =
+        `/download-monthly-data?month=${month}`;
+}

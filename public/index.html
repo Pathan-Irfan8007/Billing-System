@@ -21,6 +21,7 @@
                 <li onclick="showPage('main-page')">link-1</li>
                 <li onclick="showPage('database-box')">link-2</li>
                 <li onclick="showPage('sorted-table-page')">link-3</li>
+                <li onclick="showPage('download-data')">link-4</li>
             </ul>
         </div>
     </nav>
@@ -70,6 +71,20 @@
             <button id="date-btn" onclick="searchData()">Find Result</button><br>
         </div>
         <div id="sorted-database"></div>
+    </div>
+    
+    <div id="download-data" class="content">
+        <div id="download-box">
+            <div>
+                <input type="month" id="monthPicker">
+            </div>
+            
+            <div>
+                <button id="download-btn" onclick="downloadMonthlyData()">
+                    Download Monthly Report
+                </button>
+            </div>
+        </div>
     </div>
     
     <footer>

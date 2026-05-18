@@ -5,6 +5,7 @@ const port = process.env.PORT || 5000
 const { MongoClient } = require('mongodb')
 const cors = require('cors')
 const path = require('path')
+const XLSX = require('xlsx');
 
 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -74,7 +75,7 @@ app.get('/search/:date', async (req, res) => {
         const selectedDate = req.params.date;
 
         const start = new Date(selectedDate);
-        let end = new Date(selectedDate);
+        const end = new Date(selectedDate);
 
         end.setDate(end.getDate() + 1);
 
@@ -97,6 +98,62 @@ app.get('/search/:date', async (req, res) => {
 
     }
 
+});
+
+
+app.get('/download-monthly-data', async (req, res) => {
+
+    const month = req.query.month;
+
+    const startDate = new Date(`${month}-01`);
+    const endDate = new Date(startDate);
+
+    endDate.setMonth(endDate.getMonth() + 1);
+
+    const collection = await db.collection('customer')
+
+    const data = await collection.find({
+        createdAt: {
+            $gte: startDate,
+            $lt: endDate
+        }
+    }).toArray();
+
+    if(data.length === 0){
+        return res.status(404).send("No records found for this month");
+    }
+
+    const formattedData = data.map(item => ({
+        Name: item.name,
+        Mobile: item.mob,
+        Product: item.product,
+        Price: item.price,
+        Payment: item.mode || item.payment,
+        Date: new Date(item.createdAt).toLocaleDateString()
+    }));
+
+    const worksheet = XLSX.utils.json_to_sheet(formattedData);
+
+    const workbook = XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Monthly Report");
+
+    const buffer = XLSX.write(workbook, {
+        type: 'buffer',
+        bookType: 'xlsx'
+    });
+
+    res.setHeader(
+        'Content-Disposition',
+        `attachment; filename=${month}-report.xlsx`
+    );
+
+    res.setHeader(
+        'Content-Type',
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    );
+
+    res.send(buffer);
 });
 
 app.listen(port, () => {
