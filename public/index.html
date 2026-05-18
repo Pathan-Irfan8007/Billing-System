@@ -10,7 +10,13 @@
 
     <nav>
         <div class="logo">Logo</div>
-        <div class="links">
+
+        <!-- Hamburger -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <div class="links" id="mobileMenu">
             <ul>
                 <li onclick="showPage('main-page')">link-1</li>
                 <li onclick="showPage('database-box')">link-2</li>

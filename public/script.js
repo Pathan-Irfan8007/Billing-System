@@ -6,6 +6,8 @@ const showPage = (pageID) => {
     })
 
     document.getElementById(pageID).classList.add("active");
+
+    document.getElementById("mobileMenu").classList.remove("active-menu");
 }
 
 const getData = async () => {
@@ -117,4 +119,8 @@ const searchData = async () => {
         output += `</table>`;
 
         document.getElementById('sorted-database').innerHTML = output
+}
+
+function toggleMenu(){
+    document.getElementById("mobileMenu").classList.toggle("active-menu");
 }
