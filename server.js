@@ -100,5 +100,5 @@ app.get('/search/:date', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Click To Continue http://localhost:${port}`)
+    console.log(`Server Running On Port ${port}`)
 })
