@@ -10,7 +10,7 @@ const showPage = (pageID) => {
 
 const getData = async () => {
     try{
-        const res = await fetch('http://localhost:5000/customer')
+        const res = await fetch('/customer')
         const customerData = await res.json()
         customerData.sort((a,b) => 
             new Date(b.createdAt) - new Date(a.createdAt)
@@ -63,7 +63,7 @@ document.getElementById('customerForm').addEventListener('submit', async (e) => 
     }
 
     try{
-        const res = await fetch("http://localhost:5000/customer", {
+        const res = await fetch("/customer", {
             method : "POST",
             headers : {
                 "content-type" : "Application/json"
@@ -85,7 +85,7 @@ document.getElementById('customerForm').addEventListener('submit', async (e) => 
 
 const searchData = async () => {
     const selectedDate = document.getElementById("date").value;
-    const response = await fetch(`http://localhost:5000/search/${selectedDate}`);
+    const response = await fetch(`/search/${selectedDate}`);
     const customerData = await response.json();
     console.log(customerData);
 
