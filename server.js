@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express()
-const port = 5000
+require('dotenv').config()
+const port = process.env.PORT || 5000
 const { MongoClient } = require('mongodb')
 const cors = require('cors')
 const path = require('path')
-
 
 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -12,7 +12,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-const url = 'mongodb://localhost:27017'
+const url = process.env.MONGO_URL
 const client = new MongoClient(url)
 
 const dbName = "Billing-System"
