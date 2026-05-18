@@ -58,9 +58,8 @@ document.getElementById('customerForm').addEventListener('submit', async (e) => 
         mob : document.getElementById("mob").value,
         product : document.getElementById("product").value,
         price : document.getElementById("price").value,
-        payment : document.getElementById("mode").value,
+        payment : document.getElementById("mode").value
 
-        createdAt : new Date()
     }
 
     try{
@@ -83,3 +82,39 @@ document.getElementById('customerForm').addEventListener('submit', async (e) => 
         console.log(`Somethig went wrong in data insertion ${error}`)
     }
 })
+
+const searchData = async () => {
+    const selectedDate = document.getElementById("date").value;
+    const response = await fetch(`http://localhost:5000/search/${selectedDate}`);
+    const customerData = await response.json();
+    console.log(customerData);
+
+    let output = `
+        <table class="sortedTable">
+            <tr>
+                <th>Name</th>
+                <th>Mobile No</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Payment Mode</th>
+                <th>Date</th>
+            </tr>
+        `;
+
+        customerData.forEach(customer => {
+            output += `
+                <tr>
+                    <td>${customer.name}</td>
+                    <td>${customer.mob}</td>
+                    <td>${customer.product}</td>
+                    <td>${customer.price}</td>
+                    <td>${customer.payment}</td>
+                    <td>${new Date(customer.createdAt).toLocaleDateString('en-GB').replaceAll('/', '-')}</td>
+                </tr>
+            `;
+        });
+
+        output += `</table>`;
+
+        document.getElementById('sorted-database').innerHTML = output
+}

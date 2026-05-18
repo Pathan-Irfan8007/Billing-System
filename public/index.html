@@ -14,7 +14,7 @@
             <ul>
                 <li onclick="showPage('main-page')">link-1</li>
                 <li onclick="showPage('database-box')">link-2</li>
-                <li onclick="showPage('about')">link-3</lionclick>
+                <li onclick="showPage('sorted-table-page')">link-3</lionclick>
             </ul>
         </div>
     </nav>
@@ -58,8 +58,12 @@
         <div id="database"></div>
     </div>
 
-    <div id="about" class="content">
-        About page
+    <div id="sorted-table-page" class="content">
+        <div id="search-box">
+            <input type="date" id="date" name="date">
+            <button id="date-btn" onclick="searchData()">Find Result</button><br>
+        </div>
+        <div id="sorted-database"></div>
     </div>
     
     <footer>

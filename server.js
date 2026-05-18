@@ -47,7 +47,13 @@ app.post('/customer', async (req, res) => {
     try{
 
         const collection = await db.collection('customer')
-        const result = await collection.insertOne(req.body)
+
+        const customerData = {
+            ...req.body,
+            createdAt : new Date()
+        }
+
+        const result = await collection.insertOne(customerData)
         
         res.json({
             message : "Data Inserted Successfully",
@@ -60,6 +66,38 @@ app.post('/customer', async (req, res) => {
         })
     }
 })
+
+app.get('/search/:date', async (req, res) => {
+
+    try {
+
+        const selectedDate = req.params.date;
+
+        const start = new Date(selectedDate);
+        let end = new Date(selectedDate);
+
+        end.setDate(end.getDate() + 1);
+
+        const collection = await db.collection('customer')
+
+        const data = await collection.find({
+            createdAt: {
+                $gte: start,
+                $lt: end
+            }
+        }).toArray()
+
+        res.json(data);
+
+    } catch (error) {
+
+        res.status(500).json({
+            message : error.message
+        })
+
+    }
+
+});
 
 app.listen(port, () => {
     console.log(`Click To Continue http://localhost:${port}`)
