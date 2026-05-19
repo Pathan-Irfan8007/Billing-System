@@ -18,10 +18,10 @@
 
         <div class="links" id="mobileMenu">
             <ul>
-                <li onclick="showPage('main-page')">link-1</li>
-                <li onclick="showPage('database-box')">link-2</li>
-                <li onclick="showPage('sorted-table-page')">link-3</li>
-                <li onclick="showPage('download-data')">link-4</li>
+                <li onclick="showPage('main-page')">Home</li>
+                <li onclick="showPage('database-box')">All Records</li>
+                <li onclick="showPage('sorted-table-page')">Daily Records</li>
+                <li onclick="showPage('download-data')">Monthly Report</li>
             </ul>
         </div>
     </nav>
@@ -66,6 +66,7 @@
     </div>
 
     <div id="sorted-table-page" class="content">
+        <h2 class="heading">Enter Date to See Records</h2>
         <div id="search-box">
             <input type="date" id="date" name="date">
             <button id="date-btn" onclick="searchData()">Find Result</button><br>
@@ -74,6 +75,7 @@
     </div>
     
     <div id="download-data" class="content">
+        <h2 class="heading">Enter Month To Download Report</h2>
         <div id="download-box">
             <div>
                 <input type="month" id="monthPicker">

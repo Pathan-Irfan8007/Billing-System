@@ -213,6 +213,9 @@ footer{
 #sorted-table-page.active{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
 #date{
@@ -446,9 +449,12 @@ nav{
     transform: scale(1.05);
 }
 
-#download-data{
+#download-data.active{
+    display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
 }
 
 #download-box{
@@ -461,4 +467,9 @@ nav{
     #download-box{
         flex-direction: column;
     }
+}
+
+.heading{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
 }

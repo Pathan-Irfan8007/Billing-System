@@ -120,7 +120,11 @@ app.get('/download-monthly-data', async (req, res) => {
     }).toArray();
 
     if(data.length === 0){
-        return res.status(404).send("No records found for this month");
+        return res.status(404).send(`
+            <h1 style="font-size: 40px; text-align:center; margin-top:50px;">
+                No records found for this month
+            </h1>
+        `);
     }
 
     const formattedData = data.map(item => ({
