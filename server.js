@@ -162,4 +162,5 @@ app.get('/download-monthly-data', async (req, res) => {
 
 app.listen(port, () => {
     console.log(`Server Running On Port ${port}`)
+    console.log(`http://localhost:${port}`)
 })
